@@ -21,6 +21,9 @@ function($scope,$document) {
     $scope.reset = function() {
         $scope.input.result = [];
     }
+    $scope.submit = function() {
+        console.log("submitted");
+    }
     $document.on('keydown',function(ev) {
         $scope.$apply(function() {
             if (!isNaN(parseInt(ev.key))) {
@@ -29,8 +32,9 @@ function($scope,$document) {
                 $scope.backspace();
             } else if (ev.keyCode == 27) {
                 $scope.reset();
+            } else if (ev.keyCode == 13) {
+                $scope.submit();
             }
-
         });
     });
 }]);
