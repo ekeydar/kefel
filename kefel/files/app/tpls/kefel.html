@@ -1,10 +1,20 @@
 <div>
-    <h1>KEFEL</h1>
-    <div ng-repeat="row in rows">
-        <div ng-repeat="key in row.slice().reverse()">
-            <div ng-controller="KeyController" class="key-square col-md-4">
-                {{key}}
-            </div>
-        </div>
+  <h1>KEFEL</h1>
+  <div ng-repeat="row in rows">
+    <div class="row">
+      <div ng-repeat="key in row.slice().reverse()" ng-controller="KeyController" class="col-md-1">
+	<button class="btn-key">
+        <span ng-if="key=='B'">
+            <span class="glyphicon glyphicon-step-backward"></span>
+        </span>
+        <span ng-if="key=='C'">
+            <span class="glyphicon glyphicon-erase"></span>
+        </span>
+        <span ng-if="key != 'B' && key != 'C'">
+            {{key}}
+        </span>
+	</button>
+      </div>
     </div>
+  </div>
 </div>
