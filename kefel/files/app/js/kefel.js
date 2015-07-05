@@ -10,8 +10,7 @@ function Question(index) {
     this.num1 = this.genNum();
     this.num2 = this.genNum();
     this.index = index;
-    this.status = index % 3;
-
+    this.status = this.NOTASKED;
 }
 
 app.controller('KefelController', ['$scope','$document',
@@ -22,6 +21,7 @@ function($scope,$document) {
                    ["C",0,"B"]];
 
     $scope.questions = [];
+    $scope.curQuestion = null;
     for (var i = 0 ; i < 10 ; i++) {
 	    $scope.questions.push(new Question(i));
     }

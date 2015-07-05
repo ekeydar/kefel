@@ -21,6 +21,8 @@ body {
     color: #8d8d8d;
     font-size: 14px;
     font-weight: bold; 
+    width: 4em;
+    height: 2em;
 }
 
 .question-wrong {
@@ -33,6 +35,8 @@ body {
     color: #8d8d8d;
     font-size: 14px;
     font-weight: bold; 
+    width: 4em;
+    height: 2em;
 }
 
 .question-right {
@@ -45,4 +49,6 @@ body {
     color: #8d8d8d;
     font-size: 14px;
     font-weight: bold; 
+    width: 4em;
+    height: 2em;
 }
