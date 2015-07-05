@@ -4,9 +4,9 @@ function Question() {
     Question.prototype.genNum = function() {
 	return Math.ceil(Math.random(1)*10)
     }
-    Question.prototype.NOTASKED = "NOTASKED";
-    Question.prototype.RIGHT = "RIGHT";
-    Question.prototype.WRONG = "WRONG";
+    Question.prototype.NOTASKED = 0;
+    Question.prototype.RIGHT = 1;
+    Question.prototype.WRONG = 2;
     this.num1 = this.genNum();
     this.num2 = this.genNum();
     this.status = this.NOTASKED;
