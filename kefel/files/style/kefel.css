@@ -23,7 +23,7 @@ body {
     font-weight: bold; 
 }
 
-.question-status-WRONG {
+.question-wrong {
     display: inline-block;
     margin: 5px 3px;
     padding: 6px 17px;
@@ -35,7 +35,7 @@ body {
     font-weight: bold; 
 }
 
-.question-status-RIGHT {
+.question-right {
     display: inline-block;
     margin: 5px 3px;
     padding: 6px 17px;

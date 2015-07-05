@@ -1,6 +1,6 @@
 var app = angular.module('kefel_app', ['my.filters']);
 
-function Question() {
+function Question(index) {
     Question.prototype.genNum = function() {
 	return Math.ceil(Math.random(1)*10)
     }
@@ -9,7 +9,9 @@ function Question() {
     Question.prototype.WRONG = 2;
     this.num1 = this.genNum();
     this.num2 = this.genNum();
-    this.status = this.NOTASKED;
+    this.index = index;
+    this.status = index % 3;
+
 }
 
 app.controller('KefelController', ['$scope','$document',
@@ -21,7 +23,7 @@ function($scope,$document) {
 
     $scope.questions = [];
     for (var i = 0 ; i < 10 ; i++) {
-	$scope.questions.push(new Question());
+	    $scope.questions.push(new Question(i));
     }
     $scope.input = {
         result: []

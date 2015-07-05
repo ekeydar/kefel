@@ -2,8 +2,12 @@
   <h1>לוח הכפל</h1>
   <div class="row">
     <ul>
-      <li ng-repeat="question in questions" ng-class="{'question-not-asked' : question.status == Question.NOTASKED}">
-	{{question.status}}
+      <li ng-repeat="question in questions" ng-class="{
+      'question-not-asked' : question.status == question.NOTASKED,
+      'question-right' : question.status == question.RIGHT,
+      'question-wrong' : question.status == question.WRONG,
+      }">
+	{{question.time || ''}}
       </li>
     </ul>
   </div>
