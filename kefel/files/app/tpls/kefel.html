@@ -1,0 +1,10 @@
+<div>
+    <h1>KEFEL</h1>
+    <div ng-repeat="row in rows">
+        <div ng-repeat="key in row.slice().reverse()">
+            <div ng-controller="KeyController" class="key-square col-md-4">
+                {{key}}
+            </div>
+        </div>
+    </div>
+</div>
