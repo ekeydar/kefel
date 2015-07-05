@@ -1,5 +1,15 @@
 <div ng-keydown="keyPress()">
-  <h1>KEFEL</h1>
+  <h1>לוח הכפל</h1>
+  <div class="row">
+    <ul>
+      <li ng-repeat="question in questions" ng-class="{'question-not-asked' : question.status == Question.NOTASKED}">
+	{{question.status}}
+      </li>
+    </ul>
+  </div>
+  <div class="row">
+    
+  </div>
   <div class="row">
       <div class="col-md-3">
         <input width="100%" readonly="readonly" value="{{input.result | joinList}}">

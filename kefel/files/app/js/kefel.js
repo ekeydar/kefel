@@ -1,11 +1,28 @@
 var app = angular.module('kefel_app', ['my.filters']);
 
+function Question() {
+    Question.prototype.genNum = function() {
+	return Math.ceil(Math.random(1)*10)
+    }
+    Question.prototype.NOTASKED = "NOTASKED";
+    Question.prototype.RIGHT = "RIGHT";
+    Question.prototype.WRONG = "WRONG";
+    this.num1 = this.genNum();
+    this.num2 = this.genNum();
+    this.status = this.NOTASKED;
+}
+
 app.controller('KefelController', ['$scope','$document',
 function($scope,$document) {
     $scope.rows = [[7,8,9],
                    [4,5,6],
                    [1,2,3],
                    ["C",0,"B"]];
+
+    $scope.questions = [];
+    for (var i = 0 ; i < 10 ; i++) {
+	$scope.questions.push(new Question());
+    }
     $scope.input = {
         result: []
     }
