@@ -1,9 +1,12 @@
 <div>
   <h1>KEFEL</h1>
+  <div>
+      <input readonly="readonly" value="{{input.result | joinList}}">
+  </div>
   <div ng-repeat="row in rows">
     <div class="row">
-      <div ng-repeat="key in row.slice().reverse()" ng-controller="KeyController" class="col-md-1">
-	<button class="btn-key">
+      <div ng-repeat="key in row | reverse" ng-controller="KeyController" class="col-md-1">
+	<button class="btn-key" ng-click="clicked()">
         <span ng-if="key=='B'">
             <span class="glyphicon glyphicon-step-backward"></span>
         </span>
