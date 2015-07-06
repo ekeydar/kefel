@@ -109,6 +109,7 @@ function($scope,$document,$filter) {
     }
     $scope.submit = function() {
         if (!$scope.curQuestion) {
+            console.log("no question - ignoring");
             return;
         }
         $scope.curQuestion.check();
