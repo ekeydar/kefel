@@ -2,7 +2,6 @@ var app = angular.module('kefel_app', ['my.filters']);
 
 app.controller('KefelController', ['$scope','$document','$filter',
 function($scope,$document,$filter) {
-
     function Question(index) {
         Question.prototype.genNum = function() {
         return Math.ceil(Math.random(1)*10)
@@ -47,6 +46,8 @@ function($scope,$document,$filter) {
         }
     }
 
+
+
     $scope.getRightCount = function() {
         var rightCount = 0;
         $scope.questions.forEach(function(q) {
@@ -88,19 +89,13 @@ function($scope,$document,$filter) {
         return Math.ceil(100 * $scope.getRightCount() /$scope.questions.length); 
     }
 
-
     $scope.rows = [[7,8,9],
                    [4,5,6],
                    [1,2,3],
                    ["C",0,"B"]];
 
-    $scope.questions = [];
-    $scope.curQuestion = null;
-    $scope.curQuestionIndex = 0;
-    $scope.done = false;
-    for (var i = 0 ; i < 3 ; i++) {
-	    $scope.questions.push(new Question(i));
-    }
+
+
     $scope.addDigit = function(d) {
         if ($scope.curQuestion) {
             $scope.curQuestion.pushToInput(d);
@@ -143,10 +138,18 @@ function($scope,$document,$filter) {
         });
     });
     $scope.start = function() {
-        this.curQuestion = $scope.questions[0];
-        this.curQuestion.start();
+        $scope.questions = [];
+        $scope.started = true;
+        $scope.done = false;
+        for (var i = 0 ; i < $scope.numQuestions ; i++) {
+            $scope.questions.push(new Question(i));
+        }
+        $scope.curQuestionIndex = 0;
+        $scope.curQuestion = $scope.questions[$scope.curQuestionIndex];
+        $scope.curQuestion.start();
     }
-    $scope.start();
+    $scope.numQuestions = 3;
+    $scope.started = false;
 }]);
 
 

@@ -1,11 +1,21 @@
 <div>
     <h1>לוח הכפל</h1>
-    <div class="row">
+    <div ng-hide="started">
+        <div>
+        לפניכם סדרה של {{numQuestions}} שאלות<br/>
+        עליכם לענות על כל שאלה<br/>
+        לחצו על הכפתור למטה להתחלה<br/>
+        בהצלחה
+        </div>
+        <button class="btn btn-xlarge btn-success" ng-click="start()">התחל</button>
+    </div>
+    <div ng-show="started" class="row">
         <ul>
             <li ng-repeat="question in questions" ng-class="{
-            'question-not-asked' : question.status == question.NOTASKED,
-            'question-right' : question.status == question.RIGHT,
-            'question-wrong' : question.status == question.WRONG,
+            'question-indicator': true,
+            'question-indicator-not-asked' : question.status == question.NOTASKED,
+            'question-indicator-success' : question.status == question.RIGHT,
+            'question-indicator-failure' : question.status == question.WRONG,
         }">
             {{question.index}}
             </li>
@@ -43,7 +53,7 @@
                 <td>{{getCount()}}</td>
             </tr>
             <tr>
-                <td>תשובות נכונו</td>
+                <td>תשובות נכונות</td>
                 <td>{{getRightCount()}}</td>
             </tr>
             <tr>
