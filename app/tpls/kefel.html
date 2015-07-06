@@ -28,18 +28,16 @@
                 <span ng-repeat="i in curQuestion.answerLength | toRange">{{curQuestion.input[i] | underscoreIfUndefinded }}&nbsp;</span>
             </div>
         </div>
-        <div ng-repeat="row in rows">
-            <div class="row">
-                <div ng-repeat="key in row | reverse" ng-controller="KeyController" class="col-md-1">
+        <div ng-repeat="row in rows" class="row">
+                <div ng-repeat="key in row | reverse" ng-controller="KeyController">
                     <button class="btn-key" ng-click="clicked()">
                         <span ng-if="key=='B'" class="glyphicon glyphicon-step-backward"></span>
                         <span ng-if="key=='C'" class="glyphicon glyphicon-erase"></span>
                         <span ng-if="key != 'B' && key != 'C'">{{key}}</span>
                     </button>
                 </div>
-            </div>
         </div>
-        <div class="row col-md-3">
+        <div class="row">
             <button class="btn-key" ng-click="submit()">
                 <span class="glyphicon glyphicon-ok"></span>
             </button>
