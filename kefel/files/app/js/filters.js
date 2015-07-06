@@ -12,4 +12,14 @@ myFilters.filter('reverse',function() {
 	};
 });
 
+myFilters.filter('toRange',function() {
+	return function(num) {
+		var result = [];
+		for (var i =  0; i < num; i++) {
+         	result.push(i);
+		}
+		return result;
+	};
+});
+
 

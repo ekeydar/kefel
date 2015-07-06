@@ -9,6 +9,7 @@ function Question(index) {
     Question.prototype.WRONG = 2;
     this.num1 = this.genNum();
     this.num2 = this.genNum();
+    this.answerLength = (this.num1*this.num2).toString().length;
     this.index = index;
     this.status = this.NOTASKED;
 }
