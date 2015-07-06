@@ -146,7 +146,7 @@ function($scope,$document,$filter) {
         $scope.curQuestion.start();
     }
     $scope.questions = [];
-    $scope.numQuestions = 3;
+    $scope.numQuestions = 10;
     $scope.started = false;
 }]);
 
