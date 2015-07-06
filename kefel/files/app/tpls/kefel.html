@@ -1,4 +1,4 @@
-<div ng-keydown="keyPress()">
+<div>
     <h1>לוח הכפל</h1>
     <div class="row">
         <ul>
@@ -7,6 +7,7 @@
             'question-right' : question.status == question.RIGHT,
             'question-wrong' : question.status == question.WRONG,
         }">
+            {{question.index}}
             </li>
         </ul>
     </div>

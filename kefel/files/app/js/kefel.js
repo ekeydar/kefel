@@ -10,6 +10,7 @@ function($scope,$document,$filter) {
         Question.prototype.NOTASKED = 0;
         Question.prototype.RIGHT = 1;
         Question.prototype.WRONG = 2;
+        this.index = index;
         this.num1 = this.genNum();
         this.num2 = this.genNum();
         this.answerLength = (this.num1*this.num2).toString().length;
