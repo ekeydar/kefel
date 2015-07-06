@@ -4,7 +4,7 @@ app.controller('KefelController', ['$scope','$document','$filter',
 function($scope,$document,$filter) {
     function Question(index) {
         Question.prototype.genNum = function() {
-            return 1+Math.floor(Math.random()*10)
+            return 1+Math.floor(Math.random()*10);
         }
         Question.prototype.NOTASKED = 0;
         Question.prototype.RIGHT = 1;
@@ -138,7 +138,7 @@ function($scope,$document,$filter) {
         $scope.questions = [];
         $scope.started = true;
         $scope.done = false;
-        for (var i = 0 ; i < $scope.numQuestions ; i++) {
+        for (var i = 1 ; i <= $scope.numQuestions ; i++) {
             $scope.questions.push(new Question(i));
         }
         $scope.curQuestionIndex = 0;
