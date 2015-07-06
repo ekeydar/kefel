@@ -32,8 +32,6 @@ function($scope,$document,$filter) {
         Question.prototype.check = function() {
             this.endTime = new Date().getTime();
             this.totalTime = this.endTime - this.startTime;
-            console.log(this.endTime,this.startTime);
-            console.log(this.totalTime);
             var userAnswer = parseInt($filter('joinList')(this.input));
             if (userAnswer == this.num1*this.num2) {
                 this.status = this.RIGHT;
@@ -45,8 +43,6 @@ function($scope,$document,$filter) {
             this.startTime = new Date().getTime();
         }
     }
-
-
 
     $scope.getRightCount = function() {
         var rightCount = 0;
@@ -148,6 +144,7 @@ function($scope,$document,$filter) {
         $scope.curQuestion = $scope.questions[$scope.curQuestionIndex];
         $scope.curQuestion.start();
     }
+    $scope.questions = [];
     $scope.numQuestions = 3;
     $scope.started = false;
 }]);
