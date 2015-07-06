@@ -25,6 +25,7 @@ function($scope,$document) {
     for (var i = 0 ; i < 10 ; i++) {
 	    $scope.questions.push(new Question(i));
     }
+    $scope.curQuestion = $scope.questions[0];
     $scope.input = {
         result: []
     }

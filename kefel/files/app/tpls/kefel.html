@@ -6,39 +6,30 @@
       'question-not-asked' : question.status == question.NOTASKED,
       'question-right' : question.status == question.RIGHT,
       'question-wrong' : question.status == question.WRONG,
-      }">
-	{{question.time || ''}}
-      </li>
-    </ul>
+    }">
+    {{question.time || ''}}
+  </li>
+</ul>
+</div>    
+<div class="row">
+  <div class="col-md-3 question-div" ng-show="curQuestion != null">
+    <span>{{curQuestion.num1}}</span> <span>X</span> <span>{{curQuestion.num2}}</span> = _ &nbsp; _ &nbsp; _ &nbsp;
   </div>
-  <div class="row" ng-show="curQuestion != null">
-    {{curQuestion.num1}} x {{curQuestion.num2}}
-  </div>
+</div>
+<div ng-repeat="row in rows">
   <div class="row">
-      <div class="col-md-3">
-        <input width="100%" readonly="readonly" value="{{input.result | joinList}}">
-      </div>
-  </div>
-  <div ng-repeat="row in rows">
-    <div class="row">
-      <div ng-repeat="key in row | reverse" ng-controller="KeyController" class="col-md-1">
-	<button class="btn-key" ng-click="clicked()">
-        <span ng-if="key=='B'">
-            <span class="glyphicon glyphicon-step-backward"></span>
-        </span>
-        <span ng-if="key=='C'">
-            <span class="glyphicon glyphicon-erase"></span>
-        </span>
-        <span ng-if="key != 'B' && key != 'C'">
-            {{key}}
-        </span>
-	</button>
-      </div>
+    <div ng-repeat="key in row | reverse" ng-controller="KeyController" class="col-md-1">
+      <button class="btn-key" ng-click="clicked()">
+        <span ng-if="key=='B'" class="glyphicon glyphicon-step-backward"></span>
+        <span ng-if="key=='C'" class="glyphicon glyphicon-erase"></span>
+        <span ng-if="key != 'B' && key != 'C'">{{key}}</span>
+      </button>
     </div>
   </div>
-  <div class="row col-md-3">
-        <button class="btn-key" ng-click="submit()">
-            <span class="glyphicon glyphicon-ok"></span>
-        </button>
-    </div>
+</div>
+<div class="row col-md-3">
+  <button class="btn-key" ng-click="submit()">
+    <span class="glyphicon glyphicon-ok"></span>
+  </button>
+</div>
 </div>
