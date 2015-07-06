@@ -108,9 +108,10 @@ function($scope,$document,$filter) {
         }
     }
     $scope.submit = function() {
-        if ($scope.curQuestion) {
-            $scope.curQuestion.check();
+        if (!$scope.curQuestion) {
+            return;
         }
+        $scope.curQuestion.check();
         $scope.curQuestionIndex++;
         if ($scope.curQuestionIndex < $scope.questions.length) {
             $scope.curQuestion = $scope.questions[$scope.curQuestionIndex];
