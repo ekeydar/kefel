@@ -12,6 +12,20 @@ function Question(index) {
     this.answerLength = (this.num1*this.num2).toString().length;
     this.index = index;
     this.status = this.NOTASKED;
+    this.input = [];
+    Question.prototype.pushToInput = function(i) {
+        if (this.input.length < this.answerLength) {
+            this.input.push(i);
+        }
+    }
+    Question.prototype.popInput = function() {
+        if (this.input.length > 0) {
+            this.input.pop();
+        }
+    }
+    Question.prototype.resetInput = function() {
+        this.input = [];
+    }
 }
 
 app.controller('KefelController', ['$scope','$document',
@@ -30,17 +44,20 @@ function($scope,$document) {
     $scope.input = {
         result: []
     }
-    $scope.keyPress = function() {
-        console.log("key press");
-    }
     $scope.addDigit = function(d) {
-        $scope.input.result.push(d);
+        if ($scope.curQuestion) {
+            $scope.curQuestion.pushToInput(d);
+        }
     }
     $scope.backspace = function() {
-        $scope.input.result.pop();
+        if ($scope.curQuestion) {
+            $scope.curQuestion.popInput();
+        }
     }
     $scope.reset = function() {
-        $scope.input.result = [];
+        if ($scope.curQuestion) {
+            $scope.curQuestion.resetInput();
+        }
     }
     $scope.submit = function() {
         console.log("submitted");

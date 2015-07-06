@@ -22,4 +22,13 @@ myFilters.filter('toRange',function() {
 	};
 });
 
+myFilters.filter('underscoreIfUndefinded',function() {
+	return function(n) {
+		if (n === null || n === undefined ) {
+			return '_';
+		} 
+		return n;
+	}
+});
+
 

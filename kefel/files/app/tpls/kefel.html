@@ -12,9 +12,12 @@
         </ul>
     </div>    
     <div class="row">
+        <div>
+            INPUT = {{$scope.curQuestion.input}}
+        </div>
         <div class="col-md-3 question-div" ng-show="curQuestion != null">
             <span>{{curQuestion.num1}}</span> <span>X</span> <span>{{curQuestion.num2}}</span> = 
-            <span ng-repeat="i in curQuestion.answerLength | toRange">_&nbsp;</span>
+            <span ng-repeat="i in curQuestion.answerLength | toRange">{{curQuestion.input[i] | underscoreIfUndefinded }}&nbsp;</span>
         </div>
     </div>
     <div ng-repeat="row in rows">
