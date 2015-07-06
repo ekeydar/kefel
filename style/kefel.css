@@ -13,6 +13,9 @@ body {
 .td-key {
     width: 60px;
     height: 60px;
+    padding: 5px;
+    color: black;
+    font-weight: bold; 
 }
 
 .btn-key {

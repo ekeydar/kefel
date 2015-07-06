@@ -29,7 +29,8 @@
             </div>
         </div>
         <table border="1">
-        <tr ng-repeat="row in rows" class="row">
+        <tr ng-repeat="row in rows">
+            
                 <td ng-repeat="key in row | reverse" ng-controller="KeyController" class="td-key">
                     <button class="btn-key" ng-click="clicked()">
                         <span ng-if="key=='B'" class="glyphicon glyphicon-step-backward"></span>
@@ -37,7 +38,6 @@
                         <span ng-if="key != 'B' && key != 'C'">{{key}}</span>
                     </button>
                 </td>
-        </tr>
         <tr>
             <td colspan="3" class="td-key">
                 <button class="btn-key" ng-click="submit()">
