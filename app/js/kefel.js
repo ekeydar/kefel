@@ -4,7 +4,7 @@ app.controller('KefelController', ['$scope','$document','$filter',
 function($scope,$document,$filter) {
     function Question(index) {
         Question.prototype.genNum = function() {
-        return Math.ceil(Math.random(1)*10)
+            return 1+Math.floor(Math.random()*10)
         }
         Question.prototype.NOTASKED = 0;
         Question.prototype.RIGHT = 1;
@@ -151,8 +151,8 @@ function($scope,$document,$filter) {
 }]);
 
 
-app.controller('KeyController',['$scope',
-function($scope) {
+app.controller('KeyController',['$scope','$location',
+function($scope,$location) {
     $scope.isBack = function() {
         return $scope.key == 'B';
     }
