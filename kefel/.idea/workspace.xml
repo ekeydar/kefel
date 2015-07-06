@@ -66,8 +66,8 @@
       <file leaf-file-name="filters.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/files/app/js/filters.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="465">
-              <caret line="14" column="39" selection-start-line="14" selection-start-column="39" selection-end-line="14" selection-end-column="39" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="135" max-vertical-offset="600">
+              <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -86,8 +86,8 @@
       <file leaf-file-name="kefel.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/files/app/js/kefel.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.2799378" vertical-offset="15" max-vertical-offset="1335">
-              <caret line="13" column="23" selection-start-line="13" selection-start-column="23" selection-end-line="13" selection-end-column="23" />
+            <state vertical-scroll-proportion="0.58320373" vertical-offset="375" max-vertical-offset="2055">
+              <caret line="50" column="48" selection-start-line="50" selection-start-column="48" selection-end-line="50" selection-end-column="48" />
               <folding />
             </state>
           </provider>
@@ -96,7 +96,7 @@
       <file leaf-file-name="kefel.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/files/app/tpls/kefel.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.25862068" vertical-offset="0" max-vertical-offset="630">
+            <state vertical-scroll-proportion="-0.25862068" vertical-offset="0" max-vertical-offset="780">
               <caret line="1" column="8" selection-start-line="1" selection-start-column="8" selection-end-line="1" selection-end-column="8" />
               <folding />
             </state>
@@ -119,10 +119,10 @@
         <option value="$PROJECT_DIR$/files/js/app/kefel.js" />
         <option value="$PROJECT_DIR$/home/templates/home/home.html" />
         <option value="$PROJECT_DIR$/files/app/js/directives.js" />
-        <option value="$PROJECT_DIR$/files/app/js/kefel.js" />
         <option value="$PROJECT_DIR$/files/style/kefel.css" />
         <option value="$PROJECT_DIR$/files/app/tpls/kefel.html" />
         <option value="$PROJECT_DIR$/files/app/js/filters.js" />
+        <option value="$PROJECT_DIR$/files/app/js/kefel.js" />
       </list>
     </option>
   </component>
@@ -781,8 +781,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/files/app/js/filters.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="465">
-          <caret line="14" column="39" selection-start-line="14" selection-start-column="39" selection-end-line="14" selection-end-column="39" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="135" max-vertical-offset="600">
+          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -797,8 +797,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/files/app/js/kefel.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2799378" vertical-offset="15" max-vertical-offset="1335">
-          <caret line="13" column="23" selection-start-line="13" selection-start-column="23" selection-end-line="13" selection-end-column="23" />
+        <state vertical-scroll-proportion="0.58320373" vertical-offset="375" max-vertical-offset="2055">
+          <caret line="50" column="48" selection-start-line="50" selection-start-column="48" selection-end-line="50" selection-end-column="48" />
           <folding />
         </state>
       </provider>

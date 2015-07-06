@@ -7,33 +7,56 @@
             'question-right' : question.status == question.RIGHT,
             'question-wrong' : question.status == question.WRONG,
         }">
-        {{question.time || ''}}
             </li>
         </ul>
-    </div>    
-    <div class="row">
-        <div>
-            INPUT = {{$scope.curQuestion.input}}
-        </div>
-        <div class="col-md-3 question-div" ng-show="curQuestion != null">
-            <span>{{curQuestion.num1}}</span> <span>X</span> <span>{{curQuestion.num2}}</span> = 
-            <span ng-repeat="i in curQuestion.answerLength | toRange">{{curQuestion.input[i] | underscoreIfUndefinded }}&nbsp;</span>
-        </div>
     </div>
-    <div ng-repeat="row in rows">
+    <div ng-show="curQuestion != null">    
         <div class="row">
-            <div ng-repeat="key in row | reverse" ng-controller="KeyController" class="col-md-1">
-                <button class="btn-key" ng-click="clicked()">
-                    <span ng-if="key=='B'" class="glyphicon glyphicon-step-backward"></span>
-                    <span ng-if="key=='C'" class="glyphicon glyphicon-erase"></span>
-                    <span ng-if="key != 'B' && key != 'C'">{{key}}</span>
-                </button>
+            <div class="col-md-3 question-div" ng-show="curQuestion != null">
+                <span>{{curQuestion.num1}}</span> <span>X</span> <span>{{curQuestion.num2}}</span> = 
+                <span ng-repeat="i in curQuestion.answerLength | toRange">{{curQuestion.input[i] | underscoreIfUndefinded }}&nbsp;</span>
             </div>
         </div>
+        <div ng-repeat="row in rows">
+            <div class="row">
+                <div ng-repeat="key in row | reverse" ng-controller="KeyController" class="col-md-1">
+                    <button class="btn-key" ng-click="clicked()">
+                        <span ng-if="key=='B'" class="glyphicon glyphicon-step-backward"></span>
+                        <span ng-if="key=='C'" class="glyphicon glyphicon-erase"></span>
+                        <span ng-if="key != 'B' && key != 'C'">{{key}}</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="row col-md-3">
+            <button class="btn-key" ng-click="submit()">
+                <span class="glyphicon glyphicon-ok"></span>
+            </button>
+        </div>
     </div>
-    <div class="row col-md-3">
-        <button class="btn-key" ng-click="submit()">
-            <span class="glyphicon glyphicon-ok"></span>
-        </button>
+    <div ng-show="done">
+        <h2>סיכום</h2>
+        <table>
+            <tr>
+                <td>שאלות</td>
+                <td>{{getCount()}}</td>
+            </tr>
+            <tr>
+                <td>תשובות נכונו</td>
+                <td>{{getRightCount()}}</td>
+            </tr>
+            <tr>
+                <td>ציון</td>
+                <td>{{getScore()}}</td>
+            </tr>
+            <tr>
+                <td>זמו כללי</td>
+                <td>{{getTotalTime() | number:1 }}
+            </tr>
+            <tr>
+                <td>זמן ממוצע לתשובה נכונה</td>
+                <td>{{getTimeForRight() | number:1}}</td>
+            </tr>
+        </table>
     </div>
 </div>
