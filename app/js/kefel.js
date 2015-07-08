@@ -1,8 +1,4 @@
-var app = angular.module('kefel_app', ['my.filters']);
-
-app.controller('NavController', ['$scope','$document',
-    function($scope,$document) {
-}]);
+var app = angular.module('kefel_app');
 
 app.controller('KefelController', ['$scope','$document','$filter',
 function($scope,$document,$filter) {
@@ -20,6 +16,7 @@ function($scope,$document,$filter) {
         this.index = index;
         this.status = this.NOTASKED;
         this.input = [];
+        console.log(this.input);
         Question.prototype.pushToInput = function(i) {
             if (this.input.length < this.answerLength) {
                 this.input.push(i);
@@ -140,7 +137,8 @@ function($scope,$document,$filter) {
     });
     $scope.start = function() {
         $scope.questions = [];
-        $scope.started = true;
+        $scope.numQuestions = 10;
+        $scope.questions = [];
         $scope.done = false;
         for (var i = 1 ; i <= $scope.numQuestions ; i++) {
             $scope.questions.push(new Question(i));
@@ -149,9 +147,7 @@ function($scope,$document,$filter) {
         $scope.curQuestion = $scope.questions[$scope.curQuestionIndex];
         $scope.curQuestion.start();
     }
-    $scope.questions = [];
-    $scope.numQuestions = 10;
-    $scope.started = false;
+    $scope.start(); 
 }]);
 
 
