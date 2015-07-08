@@ -1,5 +1,9 @@
 var app = angular.module('kefel_app', ['my.filters']);
 
+app.controller('NavController', ['$scope','$document',
+    function($scope,$document) {
+}]);
+
 app.controller('KefelController', ['$scope','$document','$filter',
 function($scope,$document,$filter) {
     function Question(index) {
