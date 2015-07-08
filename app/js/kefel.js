@@ -16,7 +16,6 @@ function($scope,$document,$filter) {
         this.index = index;
         this.status = this.NOTASKED;
         this.input = [];
-        console.log(this.input);
         Question.prototype.pushToInput = function(i) {
             if (this.input.length < this.answerLength) {
                 this.input.push(i);

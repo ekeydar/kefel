@@ -1,0 +1,16 @@
+<div>
+	<h1>משתמשים</h1>
+	אם כבר נרשמת, בחר מהרשימה<br/>
+	אם לא, צור משתמש חדש
+	<div class="row">
+		<table class="table col-md-2">
+			<tbody>
+				<tr ng-repeat="user in allUsers" ng-controller="UserRowController">
+					<td class="col-md-1">{{user.name}}</td>
+					<td class="col-md-1"><button ng-click="clicked()">זה אני!</button></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+
