@@ -46,5 +46,13 @@
     <script src="app/js/start.js"></script>
     <script src="app/js/users.js"></script>
     <script src="app/js/history.js"></script>
+    <script>
+    $(function(){ 
+        var navMain = $("#navbar");
+        navMain.on("click", "a", null, function () {
+             navMain.collapse('hide');
+        });
+    });
+    </script>
 </body>
 </html>
