@@ -1,4 +1,5 @@
-var app = angular.module('kefel_app', ['my.filters','ngRoute']);
+"use strict";
+var app = angular.module('kefel_app', ['my.services','my.filters','ngRoute']);
 
 
 app.config(['$routeProvider',
@@ -24,15 +25,8 @@ app.config(['$routeProvider',
       });
   }]);
 
-app.controller('GlobalController', ['$scope','$document',
-    function($scope,$document) {
-      var names = ['ערן','יובל','עדו','רתם']
-      $scope.allUsers = [];
-      names.forEach(function(n) {
-        $scope.allUsers.push({'name': n});
-      });
-      $scope.curUser = $scope.allUsers[0];
-      $scope.switchUser = function(user) {
-        $scope.curUser = user;
-      }
-}]);
+app.controller('NavController', ['$scope','$document','UsersDB',
+    function($scope,$document,UsersDB) {
+      $scope.UsersDB = UsersDB;
+    }
+]);

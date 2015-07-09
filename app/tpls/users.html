@@ -5,7 +5,7 @@
 	<div class="row">
 		<table class="table col-md-2">
 			<tbody>
-				<tr ng-repeat="user in allUsers" ng-controller="UserRowController">
+				<tr ng-repeat="user in UsersDB.getAllUsers()" ng-controller="UserRowController">
 					<td class="col-md-1">{{user.name}}</td>
 					<td class="col-md-1"><button ng-click="clicked()">זה אני!</button></td>
 				</tr>

@@ -10,18 +10,19 @@
           href="js/ext/bs_rtl/bootstrap-rtl.min.css">
     <link rel="stylesheet" href="style/kefel.css">
 </head>
-<body ng-app="kefel_app" ng-controller="GlobalController">
+<body ng-app="kefel_app">
     <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
-            <div class="navbar-header">
+            <div class="navbar-header" ng-controller="NavController">
                 <a class="navbar-brand" href="#/start">לוח הכפל</a>
-                <p class="navbar-text">שלום {{curUser.name}}</p>
+                <p class="navbar-text">שלום {{UsersDB.getCurUserName()}}</p>
             </div>
         </div>
     </nav>
 <div ng-view></div>
 <script src="js/ext/angularjs/1.4.2/angular.js"></script>
 <script src="js/ext/angularjs/1.4.2/angular-route.min.js"></script>
+<script src="app/js/services.js"></script>
 <script src="app/js/filters.js"></script>
 <script src="app/js/main.js"></script>
 <script src="app/js/kefel.js"></script>
