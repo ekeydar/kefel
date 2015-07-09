@@ -11,7 +11,7 @@ services.service('UsersDB', ['$window',function($window) {
 		this.writeToLocalStorage('curUserId',this.curUserId);
 	}
 	this.writeToLocalStorage = function(key,value) {
-		$window.localStorage.setItem(key,value)
+		$window.localStorage.setItem(key,angular.toJson(value));
 	}
 	this.readLocalStorage = function() {
 		this.allUsers = this.parseOrNull('allUsers') || [];
@@ -42,7 +42,7 @@ services.service('UsersDB', ['$window',function($window) {
 		return this.findUserById(this.curUserId);
 	}
 	this.getCurUserResults = function() {
-		return this.parseOrNull('results-' + this.curUserId) or [];
+		return this.parseOrNull('results-' + this.curUserId) || [];
 	}
 	this.isLegalNewUser = function(name) {
 		return !this.findUser(function(u) {
@@ -83,7 +83,7 @@ services.service('UsersDB', ['$window',function($window) {
 		}
 		var key = 'results-' + user.id
 		var results = this.parseOrNull(key) || [];
-		user.results.push(result);
+		results.push(result);
 		this.writeToLocalStorage(key,results);
 	}
 	this.setUp();

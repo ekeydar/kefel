@@ -81,4 +81,7 @@ app.controller('HistoryController',['$scope','$document','$location','UsersDB',
 	        	}
 	        }]
     	}
+    	$scope.restart = function() {
+    		$location.path("/run");
+    	}
 	}]);
