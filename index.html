@@ -11,29 +11,40 @@
     <link rel="stylesheet" href="style/kefel.css">
 </head>
 <body ng-app="kefel_app">
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header" ng-controller="NavController">
+    <nav class="navbar navbar-default navbar-inverse" ng-controller="NavController">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
                 <a class="navbar-brand" href="#/start">לוח הכפל</a>
-                <p class="navbar-text">שלום {{UsersDB.getCurUserName()}}</p>
-                <a class="navbar-text navbar-link" href="#/users">החליפו שחקן</a>
-                <a class="navbar-text navbar-link" href="#/history">ההיסטוריה שלי</a>
+                <p class="navbar-text">{{UsersDB.getCurUserName()}}</p>
             </div>
-        </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="#/users">החליפו שחקן</a></li>
+                    <li><a href="#/history">ההיסטוריה שלי</a></li>
+                </ul>
+            </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
     </nav>
-<div ng-view></div>
-<script src="js/ext/jquery/1.9.1/jquery.min.js"></script>
-<script src="js/ext/angularjs/1.4.2/angular.js"></script>
-<script src="js/ext/angularjs/1.4.2/angular-route.min.js"></script>
-<script src="js/ext/ui-bootstrap-tpls-0.13.0.min.js"></script>
-<script src="js/ext/highcharts.src.js"></script>
-<script src="js/ext/highcharts-ng.js"></script>
-<script src="app/js/services.js"></script>
-<script src="app/js/filters.js"></script>
-<script src="app/js/main.js"></script>
-<script src="app/js/kefel.js"></script>
-<script src="app/js/start.js"></script>
-<script src="app/js/users.js"></script>
-<script src="app/js/history.js"></script>
+    <div ng-view></div>
+    <script src="js/ext/jquery/1.9.1/jquery.min.js"></script>
+    <script src="js/ext/bs/js/bootstrap.min.js"></script>
+    <script src="js/ext/angularjs/1.4.2/angular.js"></script>
+    <script src="js/ext/angularjs/1.4.2/angular-route.min.js"></script>
+    <script src="js/ext/ui-bootstrap-tpls-0.13.0.min.js"></script>
+    <script src="js/ext/highcharts.src.js"></script>
+    <script src="js/ext/highcharts-ng.js"></script>
+    <script src="app/js/services.js"></script>
+    <script src="app/js/filters.js"></script>
+    <script src="app/js/main.js"></script>
+    <script src="app/js/kefel.js"></script>
+    <script src="app/js/start.js"></script>
+    <script src="app/js/users.js"></script>
+    <script src="app/js/history.js"></script>
 </body>
 </html>

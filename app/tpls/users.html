@@ -1,5 +1,5 @@
 <div>
-	<h1>משתמשים</h1>
+	<h1>שחקנים</h1>
 	אם כבר נרשמת, בחר מהרשימה<br/>
 	אם לא, צור משתמש חדש
 	<div class="row">
@@ -7,17 +7,17 @@
 			<tbody>
 				<tr ng-repeat="user in UsersDB.getAllUsers()" ng-controller="UserRowController">
 					<td class="col-md-1">{{user.name}}</td>
-					<td class="col-md-1"><button ng-click="clicked()">זה אני!</button></td>
+					<td class="col-md-1"><button class="btn btn-success" ng-click="clicked()">זה אני!</button></td>
 				</tr>
 			</tbody>
 		</table>
 	</div>
 	<form class="form-inline" ng-submit="addNewUser()">
   		<div class="form-group">
-    		<label for="name">אני משתמש חדש, קוראים לי:</label>
+    		<label for="name">אני שחקן חדש, קוראים לי:</label>
     		<input type="text" class="form-control" id="name" placeholder="כתבו את שמכם" required ng-model="input.newUserName">
   		</div>
-  		<button type="submit" class="btn btn-default">בוא נתחיל</button>
+  		<button type="submit" class="btn btn-success">בוא נתחיל</button>
 	</form>
 	<alert ng-show="badNewUserErrror" type="danger" close="badNewUserErrror = null">{{badNewUserErrror}}</alert>
 </div>
