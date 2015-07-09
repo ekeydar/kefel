@@ -12,7 +12,7 @@ app.controller('UserRowController',['$scope','$document','$location','UsersDB',
 		$scope.clicked = function() {
 			console.log("user " + $scope.user.name + " clicked");
 			UsersDB.switchUser($scope.user);
-			$location.path("/run");
+			$location.path("/start");
 		}
 	}
 ]);
