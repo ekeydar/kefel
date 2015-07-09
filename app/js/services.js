@@ -60,13 +60,23 @@ services.service('UsersDB', ['$window',function($window) {
  		this.updateLocalStorage();
  	}
 	this.getCurUserName = function() {
-		return this.getCurUser() ? this.getCurUser().name : 'אורח';
+		var cu = this.getCurUser()
+		return cu ? cu.name : 'אורח';
 	}
 	this.getAllUsers = function() {
 		return this.allUsers;
 	}
 	this.switchUser = function(user) {
 		this.curUserId = user.id;
+		this.updateLocalStorage();
+	}
+	this.addResultToCurUser = function(result) {
+		var user = this.getCurUser();
+		if (!user) {
+			return;
+		}
+		user.results = user.results || [];
+		user.results.push(result);
 		this.updateLocalStorage();
 	}
 	this.setUp();

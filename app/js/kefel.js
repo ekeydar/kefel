@@ -1,8 +1,8 @@
 //services.js
 var app = angular.module('kefel_app');
 
-app.controller('KefelController', ['$scope','$document','$filter',
-function($scope,$document,$filter) {
+app.controller('KefelController', ['$scope','$document','$filter','UsersDB',
+function($scope,$document,$filter,UsersDB) {
     function Question(index) {
         Question.prototype.genNum = function() {
             return 1+Math.floor(Math.random()*10);
@@ -43,6 +43,10 @@ function($scope,$document,$filter) {
         Question.prototype.start = function() {
             this.startTime = new Date().getTime();
         }
+    }
+
+    $scope.getCount = function() {
+        return $scope.questions.length;
     }
 
     $scope.getRightCount = function() {
@@ -112,16 +116,31 @@ function($scope,$document,$filter) {
         if (!$scope.curQuestion) {
             return;
         }
+        if ($scope.curQuestion.input.length == 0) {
+            return;
+        }
         $scope.curQuestion.check();
         $scope.curQuestionIndex++;
         if ($scope.curQuestionIndex < $scope.questions.length) {
             $scope.curQuestion = $scope.questions[$scope.curQuestionIndex];
             $scope.curQuestion.start();
         } else {
-            $scope.curQuestion = null;
-            $scope.done = true;
+            $scope.finish();
         }
     }
+    $scope.finish = function() {
+        $scope.curQuestion = null;
+        $scope.done = true;
+        UsersDB.addResultToCurUser($scope.getSummary());
+    }
+    $scope.getSummary = function() {
+        return {
+            timestamp: new Date().getTime(),
+            score: $scope.getScore(),
+            timeForRight: $scope.getTimeForRight()
+        };
+    }
+
     $document.on('keydown',function(ev) {
         $scope.$apply(function() {
             if (!isNaN(parseInt(ev.key))) {
@@ -137,7 +156,7 @@ function($scope,$document,$filter) {
     });
     $scope.start = function() {
         $scope.questions = [];
-        $scope.numQuestions = 10;
+        $scope.numQuestions = 3;
         $scope.questions = [];
         $scope.done = false;
         for (var i = 1 ; i <= $scope.numQuestions ; i++) {

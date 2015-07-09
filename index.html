@@ -16,18 +16,23 @@
             <div class="navbar-header" ng-controller="NavController">
                 <a class="navbar-brand" href="#/start">לוח הכפל</a>
                 <p class="navbar-text">שלום {{UsersDB.getCurUserName()}}</p>
+                <a class="navbar-text navbar-link" href="#/history">ההיסטוריה שלי</a>
             </div>
         </div>
     </nav>
 <div ng-view></div>
+<script src="js/ext/jquery/1.9.1/jquery.min.js"></script>
 <script src="js/ext/angularjs/1.4.2/angular.js"></script>
 <script src="js/ext/angularjs/1.4.2/angular-route.min.js"></script>
 <script src="js/ext/ui-bootstrap-tpls-0.13.0.min.js"></script>
+<script src="js/ext/highcharts.src.js"></script>
+<script src="js/ext/highcharts-ng.js"></script>
 <script src="app/js/services.js"></script>
 <script src="app/js/filters.js"></script>
 <script src="app/js/main.js"></script>
 <script src="app/js/kefel.js"></script>
 <script src="app/js/start.js"></script>
 <script src="app/js/users.js"></script>
+<script src="app/js/history.js"></script>
 </body>
 </html>

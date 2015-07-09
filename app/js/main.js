@@ -1,5 +1,9 @@
 "use strict";
-var app = angular.module('kefel_app', ['ui.bootstrap','my.services','my.filters','ngRoute']);
+var app = angular.module('kefel_app', ['ui.bootstrap',
+  'highcharts-ng',
+  'my.services',
+  'my.filters',
+  'ngRoute']);
 
 
 app.config(['$routeProvider',
@@ -16,6 +20,10 @@ app.config(['$routeProvider',
       when('/users', {
         templateUrl: 'app/tpls/users.html',
         controller: 'UsersController',
+      }).
+      when('/history',{
+        templateUrl: 'app/tpls/history.html',
+        controller: 'HistoryController',
       }).
       when('/',{
         redirectTo: '/start',
