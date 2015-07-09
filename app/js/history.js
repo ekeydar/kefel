@@ -22,61 +22,65 @@ app.controller('HistoryController',['$scope','$document','$location','UsersDB',
 		console.log(scores);
 		$scope.histConfig = {
 			chart: {
-            	zoomType: 'xy'
-        	},
-			legend: {
-            	layout: 'vertical',
-            	align: 'left',
-            	x: 120,
-            	verticalAlign: 'top',
-            	y: 100,
-            	floating: false,
-            	backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'
-        	},
-        	yAxis: [
-        		{ 
-        			title: {
-        				text: 'ניקוד',
-        				style: {
-        					color: Highcharts.getOptions().colors[1]
-        				}
-        			}
-        		}, 
-        		{ // secondary yAxis
-        			title: {
-        				text: 'זמן לתשובה נכונה',
-        				style: {
-        					color: Highcharts.getOptions().colors[0]
-        				}
-        			},
-        			opposite: true,
-        		},
-        	],
-        	tooltip: {
-          	  	shared: true
-        	},
-        	series: [{
-        		name: 'ניקוד',
-        		data: scores,
-        		min: 0,
-        		max: 100,
-
-        	}, {
-        		name: 'זמן לתשובה נכונה',
-        		data: avgTimes,
-        		yAxis: 1,
-        	}],
-			xAxis: {
-				title: {
-					text: 'תאריך',
-				},
-				categories: dates,
-				crosshair: true,
+				zoomType: 'xy'
 			},
 			title: {
 				text: 'ההיסטוריה שלי'
 			},
-			loading: false
-		}
-}
-]);
+			subtitle: {
+				text: UsersDB.getCurUserName(),
+			},
+			xAxis: [{
+				categories: dates,
+				crosshair: true
+			}],
+        	yAxis: [{ // Primary yAxis
+	        	labels: {
+	        		style: {
+	        			color: Highcharts.getOptions().colors[1]
+	        		}
+	        	},
+	        	title: {
+	        		text: 'ניקוד',
+	        		style: {
+	        			color: Highcharts.getOptions().colors[1]
+	        		}
+	        	}
+        	}, { // Secondary yAxis
+        		title: {
+        			text: 'זמן לתשובה נכונה',
+	        		style: {
+	        			color: Highcharts.getOptions().colors[0]
+	        		}
+        		},
+        		labels: {
+	        		style: {
+	        			color: Highcharts.getOptions().colors[0]
+	        		}
+        		},
+        		opposite: true
+        	}],
+        	tooltip: {
+        		shared: true
+        	},
+	        legend: {
+	        	enabled: false,
+	        },
+	        series: [{
+	        	name: 'זמן לתשובה נכונה',
+	        	type: 'column',
+	        	yAxis: 1,
+	        	data: avgTimes,
+	        	tooltip: {
+	        		valueSuffix: ' שניות'
+	        	}
+
+	        }, {
+	        	name: 'ניקוד',
+	        	type: 'spline',
+	        	data: scores,
+	        	tooltip: {
+	        	}
+	        }]
+    	}
+	}]);

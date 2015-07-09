@@ -10,6 +10,11 @@ body {
     font-size: xx-large;
 }
 
+.chart-div {
+    direction: ltr;
+    text-align: left;
+}
+
 .td-key {
     width: 60px;
     height: 60px;
