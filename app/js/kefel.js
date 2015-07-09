@@ -156,7 +156,7 @@ function($scope,$document,$filter,UsersDB) {
     });
     $scope.start = function() {
         $scope.questions = [];
-        $scope.numQuestions = 3;
+        $scope.numQuestions = 10;
         $scope.questions = [];
         $scope.done = false;
         for (var i = 1 ; i <= $scope.numQuestions ; i++) {
