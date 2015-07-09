@@ -1,3 +1,4 @@
+"use strict";
 var myFilters = angular.module('my.filters',[]);
 
 myFilters.filter('joinList',function() {

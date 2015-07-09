@@ -1,5 +1,5 @@
 "use strict";
-var app = angular.module('kefel_app', ['my.services','my.filters','ngRoute']);
+var app = angular.module('kefel_app', ['ui.bootstrap','my.services','my.filters','ngRoute']);
 
 
 app.config(['$routeProvider',
