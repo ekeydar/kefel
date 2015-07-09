@@ -19,7 +19,6 @@ services.service('UsersDB', function() {
 		return this.curUser.name;		
 	}
 	this.getAllUsers = function() {
-		console.log('12345');
 		return this.allUsers;
 	}
 	this.switchUser = function(user) {
