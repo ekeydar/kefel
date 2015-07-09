@@ -7,8 +7,11 @@ services.service('UsersDB', ['$window',function($window) {
 		return jsonStr? JSON.parse(jsonStr) : null;
 	}
 	this.updateLocalStorage = function() {
-		$window.localStorage.setItem('allUsers',angular.toJson(this.allUsers));
-		$window.localStorage.setItem('curUserId',angular.toJson(this.curUserId));
+		this.writeToLocalStorage('allUsers',this.allUsers);
+		this.writeToLocalStorage('curUserId',this.curUserId);
+	}
+	this.writeToLocalStorage = function(key,value) {
+		$window.localStorage.setItem(key,value)
 	}
 	this.readLocalStorage = function() {
 		this.allUsers = this.parseOrNull('allUsers') || [];
@@ -37,6 +40,9 @@ services.service('UsersDB', ['$window',function($window) {
 	}
 	this.getCurUser = function() {
 		return this.findUserById(this.curUserId);
+	}
+	this.getCurUserResults = function() {
+		return this.parseOrNull('results-' + this.curUserId) or [];
 	}
 	this.isLegalNewUser = function(name) {
 		return !this.findUser(function(u) {
@@ -75,9 +81,10 @@ services.service('UsersDB', ['$window',function($window) {
 		if (!user) {
 			return;
 		}
-		user.results = user.results || [];
+		var key = 'results-' + user.id
+		var results = this.parseOrNull(key) || [];
 		user.results.push(result);
-		this.updateLocalStorage();
+		this.writeToLocalStorage(key,results);
 	}
 	this.setUp();
 }]);

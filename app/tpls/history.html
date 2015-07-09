@@ -1,6 +1,12 @@
 <div>
 	<h3>ההיסטוריה שלי</h3>
-	<div class="chart-div">
+	<div ng-show="curUser && results.length > 0" class="chart-div">
     	<highchart id="chart1" config="histConfig"></highchart>
+    </div>
+    <div ng-show="curUser != null && results.length == 0">
+    	<p>אין לך תוצאות קודמות, לך לשחק</p>
+    </div>
+    <div ng-show="curUser == null">
+    	<p>ההסטוריה לא מוצגת עבור אורחים</p>
     </div>
 </div>

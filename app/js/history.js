@@ -6,20 +6,18 @@ app.controller('HistoryController',['$scope','$document','$location','UsersDB',
 		$scope.frac2 =  function(num) {
 			return Math.ceil(num*100) / 100;
 		}
-		var scores = [];
-		var curUser = UsersDB.getCurUser();
-		var results = curUser.results || [];
+		$scope.curUser = UsersDB.getCurUser();
+		$scope.results = UsersDB.getCurUserResults();
 		var scores = [];
 		var avgTimes = [];
 		var dates = [];
-		results.forEach(function(r) {
+		$scope.results.forEach(function(r) {
 			scores.push(r.score);
 			var dt = new Date(r.timestamp);
 			var dtStr = '' + (dt.getMonth() + 1) + '/' + dt.getDate()
 			dates.push(dtStr);
 			avgTimes.push($scope.frac2(r.timeForRight));
 		});
-		console.log(scores);
 		$scope.histConfig = {
 			chart: {
 				zoomType: 'xy'
