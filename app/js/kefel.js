@@ -1,8 +1,8 @@
 //services.js
 var app = angular.module('kefel_app');
 
-app.controller('KefelController', ['$scope','$document','$filter','UsersDB',
-function($scope,$document,$filter,UsersDB) {
+app.controller('KefelController', ['$scope','$document','$filter','UsersDB','KefelConfig',
+function($scope,$document,$filter,UsersDB,KefelConfig) {
     function Question(index) {
         Question.prototype.genNum = function() {
             return 1+Math.floor(Math.random()*10);
@@ -156,7 +156,7 @@ function($scope,$document,$filter,UsersDB) {
     });
     $scope.start = function() {
         $scope.questions = [];
-        $scope.numQuestions = 10;
+        $scope.numQuestions = KefelConfig.numQuestions;
         $scope.questions = [];
         $scope.done = false;
         for (var i = 1 ; i <= $scope.numQuestions ; i++) {

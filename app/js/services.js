@@ -1,6 +1,10 @@
 "use strict";
 var services = angular.module('my.services', []);
 
+services.service('KefelConfig',['$window',function($window) {
+	this.numQuestions = 10;
+}]);
+
 services.service('UsersDB', ['$window',function($window) {
 	this.parseOrNull = function(key) {
 		var jsonStr = $window.localStorage.getItem(key);
