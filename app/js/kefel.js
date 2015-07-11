@@ -3,16 +3,57 @@ var app = angular.module('kefel_app');
 
 app.controller('KefelController', ['$scope','$document','$filter','UsersDB','KefelConfig',
 function($scope,$document,$filter,UsersDB,KefelConfig) {
-    function Question(index) {
+    function Question(index,questions) {
         Question.prototype.genNum = function() {
             return 1+Math.floor(Math.random()*10);
+        }
+        Question.prototype.genNumbers = function(quetions) {
+            while (true) {
+                this.num1 = this.genNum();
+                this.num2 = this.genNum();
+                if (this.areNumbersOk(questions)) {
+                    return;
+                }
+            }
+        }
+        Question.prototype.toString = function() {
+            return this.num1 + 'x' + this.num2;
+        }
+        Question.prototype.areNumbersOk = function(questions) {
+            var has10 = false; // has 10x question
+            var has1 = false; // has 1x question
+            for (var i = 0 ; i < questions.length ; i++) {
+                var other = questions[i];
+                if (this.num1 == other.num1 && this.num2 == other.num2) {
+                    return false;
+                }
+                if (this.num1 == other.num2 && this.num2 == other.num1) {
+                    return false;
+                }
+                if (other.num1 == 1 || other.num2 == 1) {
+                    has1 = true;
+                }
+                if (other.num1 == 10 || other.num2 == 10) {
+                    has10 = true;
+                }
+            }
+            if (has10) {
+                if (this.num1 == 10 || this.num2 == 10) {
+                    return false;
+                }
+            } 
+            if (has1) {
+                if (this.num1 == 1 || this.num2 == 1) {
+                    return false;
+                }
+            }
+            return true;
         }
         Question.prototype.NOTASKED = 0;
         Question.prototype.RIGHT = 1;
         Question.prototype.WRONG = 2;
         this.index = index;
-        this.num1 = this.genNum();
-        this.num2 = this.genNum();
+        this.genNumbers(questions);
         this.answerLength = (this.num1*this.num2).toString().length;
         this.index = index;
         this.status = this.NOTASKED;
@@ -160,8 +201,13 @@ function($scope,$document,$filter,UsersDB,KefelConfig) {
         $scope.questions = [];
         $scope.done = false;
         for (var i = 1 ; i <= $scope.numQuestions ; i++) {
-            $scope.questions.push(new Question(i));
+            var newq = new Question(i,$scope.questions);
+            $scope.questions.push(newq);
         }
+        $scope.questions.forEach(function(q) {
+            console.log(q.toString());
+        });
+
         $scope.curQuestionIndex = 0;
         $scope.curQuestion = $scope.questions[$scope.curQuestionIndex];
         $scope.curQuestion.start();
