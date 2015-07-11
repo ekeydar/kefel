@@ -5,13 +5,17 @@ body {
 
 .question-div {
     direction: ltr;
-    text-align: right;
+    text-align: center;
     font-size: xx-large;
 }
 
 .chart-div {
     direction: ltr;
     text-align: left;
+}
+
+.calc-table {
+    width: 100%;
 }
 
 .td-key {

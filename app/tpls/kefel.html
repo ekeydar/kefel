@@ -1,5 +1,5 @@
 <div>
-    <h1>לוח הכפל</h1>
+    <!--<h1>לוח הכפל</h1>-->
     <div class="row">
         <ul>
             <li ng-repeat="question in questions" ng-class="{
@@ -12,32 +12,36 @@
             </li>
         </ul>
     </div>
-    <div ng-show="curQuestion != null">    
-        <div class="row">
-            <div class="question-div" ng-show="curQuestion != null">
-                <span>{{curQuestion.num1}}</span> <span>X</span> <span>{{curQuestion.num2}}</span> = 
-                <span ng-repeat="i in curQuestion.answerLength | toRange">{{curQuestion.input[i] | underscoreIfUndefinded }}&nbsp;</span>
+    <div ng-show="curQuestion != null">   
+        <div class="row"> 
+            <div class="col-md-4 col-xs-12">
+                <div class="question-div">
+                    <span>{{curQuestion.num1}}</span> <span>X</span> <span>{{curQuestion.num2}}</span> = 
+                    <span ng-repeat="i in curQuestion.answerLength | toRange">{{curQuestion.input[i] | underscoreIfUndefinded }}&nbsp;</span>
+                </div>
             </div>
         </div>
         <div class="row">
-            <table class="col-md-4 col-xs-12" border="1">
-            <tr ng-repeat="row in rows">
-                    <td ng-repeat="key in row | reverse" ng-controller="KeyController" class="td-key">
-                        <button class="btn-key" ng-click="clicked()">
-                            <span ng-if="key=='B'" class="glyphicon glyphicon-step-backward"></span>
-                            <span ng-if="key=='C'" class="glyphicon glyphicon-erase"></span>
-                            <span ng-if="key != 'B' && key != 'C'">{{key}}</span>
+            <div class="col-md-4 col-xs-12">
+                <table class="calc-table" border="1">
+                <tr ng-repeat="row in rows">
+                        <td ng-repeat="key in row | reverse" ng-controller="KeyController" class="td-key">
+                            <button class="btn-key" ng-click="clicked()">
+                                <span ng-if="key=='B'" class="glyphicon glyphicon-step-backward"></span>
+                                <span ng-if="key=='C'" class="glyphicon glyphicon-erase"></span>
+                                <span ng-if="key != 'B' && key != 'C'">{{key}}</span>
+                            </button>
+                        </td>
+                </tr>
+                <tr>
+                    <td colspan="3" class="td-key">
+                        <button class="btn-key" ng-click="submit()">
+                            <span class="glyphicon glyphicon-ok"></span>
                         </button>
                     </td>
-            </tr>
-            <tr>
-                <td colspan="3" class="td-key">
-                    <button class="btn-key" ng-click="submit()">
-                        <span class="glyphicon glyphicon-ok"></span>
-                    </button>
-                </td>
-            </tr>
-            </table>
+                </tr>
+                </table>
+            </div>
         </div>
     </div>
     <div ng-show="done">
