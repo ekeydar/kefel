@@ -30,7 +30,7 @@ app.controller('HistoryController',['$scope','$document','$location','UsersDB',
 			},
 			xAxis: [{
 				categories: dates,
-				crosshair: true
+				crosshair: true,
 			}],
         	yAxis: [{ // Primary yAxis
 	        	labels: {
@@ -39,14 +39,14 @@ app.controller('HistoryController',['$scope','$document','$location','UsersDB',
 	        		}
 	        	},
 	        	title: {
-	        		text: 'ניקוד',
+	        		text: 'זמן לתשובה נכונה',
 	        		style: {
 	        			color: Highcharts.getOptions().colors[1]
 	        		}
 	        	}
         	}, { // Secondary yAxis
         		title: {
-        			text: 'זמן לתשובה נכונה',
+        			text: 'ניקוד',
 	        		style: {
 	        			color: Highcharts.getOptions().colors[0]
 	        		}
@@ -65,20 +65,20 @@ app.controller('HistoryController',['$scope','$document','$location','UsersDB',
 	        	enabled: false,
 	        },
 	        series: [{
-	        	name: 'זמן לתשובה נכונה',
+	        	name: 'ניקוד',
 	        	type: 'column',
 	        	yAxis: 1,
-	        	data: avgTimes,
-	        	tooltip: {
-	        		valueSuffix: ' שניות'
-	        	}
-
-	        }, {
-	        	name: 'ניקוד',
-	        	type: 'spline',
 	        	data: scores,
-	        	tooltip: {
+	       		tooltip: {
+	       			valueSuffix: ' נקודות'
 	        	}
+	        }, {
+	        	name: 'זמן לתשובה נכונה',
+	        	data: avgTimes,
+	        	type: 'spline',
+	       		tooltip: {
+	        		valueSuffix: ' שניות'
+	        	} 	
 	        }]
     	}
     	$scope.restart = function() {
