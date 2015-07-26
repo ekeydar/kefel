@@ -184,8 +184,12 @@ function($scope,$document,$filter,UsersDB,KefelConfig) {
 
     $document.on('keydown',function(ev) {
         $scope.$apply(function() {
-            if (!isNaN(parseInt(ev.key))) {
-                $scope.addDigit(ev.key);
+            var key = ev.key;
+            if (key==undefined) {
+                key = String.fromCharCode(ev.keyCode);
+            }
+            if (!isNaN(parseInt(key))) {
+                $scope.addDigit(key);
             } else if (ev.keyCode == 8 || ev.keyCode == 46) {
                 $scope.backspace();
             } else if (ev.keyCode == 27) {
