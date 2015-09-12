@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>לוח הכפל</title>
-    <link href="/kefel/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet"
           href="bower_components/bootstrap-rtl/dist/css/bootstrap-rtl.min.css">
     <link rel="stylesheet" href="style/kefel.css">
@@ -20,13 +20,21 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#/start">לוח הכפל</a>
+                <a class="navbar-brand" href="#/start">{{config.kind.name}}</a>
                 <p class="navbar-text">{{UsersDB.getCurUserName()}}</p>
             </div>
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li><a href="#/users">החליפו שחקן</a></li>
                     <li><a href="#/history">ההיסטוריה שלי</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                           aria-expanded="false">החלף משחק <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#/start/kefel/">לוח הכפל</a></li>
+                            <li><a href="#/start/plus1/">חיבור קל</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </div><!--/.nav-collapse -->
         </div><!--/.container-fluid -->
@@ -36,20 +44,20 @@
             <div ng-view></div>
         </div>
     </div>
-    <script src="/kefel/bower_components/jquery/dist/jquery.min.js"></script>
-    <script src="/kefel/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="/kefel/bower_components/angular/angular.min.js"></script>
-    <script src="/kefel/bower_components/angular-route/angular-route.min.js"></script>
-    <script src="/kefel/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
-    <script src="/kefel/bower_components/highcharts/highcharts.js"></script>
-    <script src="/kefel/bower_components/highcharts-ng/dist/highcharts-ng.min.js"></script>
-    <script src="/kefel/app/js/services.js"></script>
-    <script src="/kefel/app/js/filters.js"></script>
-    <script src="/kefel/app/js/main.js"></script>
-    <script src="/kefel/app/js/kefel.js"></script>
-    <script src="/kefel/app/js/start.js"></script>
-    <script src="/kefel/app/js/users.js"></script>
-    <script src="/kefel/app/js/history.js"></script>
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/angular-route/angular-route.min.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+    <script src="bower_components/highcharts/highcharts.js"></script>
+    <script src="bower_components/highcharts-ng/dist/highcharts-ng.min.js"></script>
+    <script src="app/js/services.js"></script>
+    <script src="app/js/filters.js"></script>
+    <script src="app/js/main.js"></script>
+    <script src="app/js/kefel.js"></script>
+    <script src="app/js/start.js"></script>
+    <script src="app/js/users.js"></script>
+    <script src="app/js/history.js"></script>
     <script>
     $(function(){ 
         var navMain = $("#navbar");

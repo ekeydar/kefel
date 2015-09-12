@@ -18,7 +18,7 @@
             </div>
             <div class="col-md-4 col-xs-12">
                 <div class="question-div">
-                    <span>{{curQuestion.num1}}</span> <span>X</span> <span>{{curQuestion.num2}}</span> = 
+                    <span>{{curQuestion.num1}}</span> <span>{{kind.symbol}}</span> <span>{{curQuestion.num2}}</span> =
                     <span ng-repeat="i in curQuestion.answerLength | toRange">{{curQuestion.input[i] | underscoreIfUndefinded }}&nbsp;</span>
                 </div>
             </div>
