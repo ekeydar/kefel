@@ -7,7 +7,6 @@ webserver/opentrain/db.sqlite3
 # Packages
 *.egg
 *.egg-info
-dist
 build
 eggs
 parts
