@@ -20,7 +20,6 @@ app.controller('UsersController', ['$scope','$document','$location','UsersDB',
 app.controller('UserRowController',['$scope','$document','$location','UsersDB',
 	function($scope,$document,$location,UsersDB) {
 		$scope.clicked = function() {
-			console.log("user " + $scope.user.name + " clicked");
 			UsersDB.switchUser($scope.user);
 			$location.path("/start");
 		}

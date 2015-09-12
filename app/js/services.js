@@ -39,7 +39,6 @@ services.service('UsersDB', ['$window',function($window) {
 		});
 	}
     this.setUp = function() {
-    	console.log("In UsersDB.setUp()");
 	    this.readLocalStorage();
 	}
 	this.getCurUser = function() {

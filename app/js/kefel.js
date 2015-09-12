@@ -208,9 +208,6 @@ function($scope,$document,$filter,UsersDB,KefelConfig) {
             var newq = new Question(i,$scope.questions);
             $scope.questions.push(newq);
         }
-        $scope.questions.forEach(function(q) {
-            console.log(q.toString());
-        });
 
         $scope.curQuestionIndex = 0;
         $scope.curQuestion = $scope.questions[$scope.curQuestionIndex];
